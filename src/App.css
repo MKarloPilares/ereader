@@ -1,0 +1,103 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #EBFBFF;
+  color: black;
+}
+header {
+  background-color: #9DC02E;
+  color: #fff;
+  padding: 15px;
+  text-align: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 9%;
+  font-size: x-small;
+}
+main {
+  padding: 20px;
+}
+
+p {
+  font-size: 32px;
+  font-family: Arial, sans-serif;
+  color: black;
+}
+
+img {
+  width: 780px;
+  height: 550px;
+}
+
+.NextButton {
+  background-color: #9DC02E;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  position: absolute; /* Position the button absolutely */
+  bottom: 20px; /* Distance from the bottom */
+  right: 20px; /* Distance from the right */
+}
+.NextButton:hover {
+  background-color: #8BB023;
+}
+
+.RecordedAudio {
+background-color: #9DC02E; /* Green background */
+color: white; /* White text */
+border: none; /* No border */
+padding: 10px 20px; /* Padding around the text */
+font-size: 16px; /* Text size */
+border-radius: 5px; /* Rounded corners */
+}
+
+.RecordedAudio:hover {
+background-color: #8BB023; /* Slightly darker green on hover */
+}
+
+.RecAudio {
+position: absolute;
+top: 210px; /* Distance from the bottom */
+right: 840px; /* Distance from the right */
+width: 137px; 
+height: 81px;
+}
+
+.Direction {
+position: absolute;
+top: 140px; /* Distance from the bottom */
+right: 460px; /* Distance from the right */
+width: 137px; 
+height: 81px;
+}
+
+.StudAudio {
+border: solid;
+border-color: black;
+position: absolute;
+top: 470px; /* Distance from the bottom */
+right: 450px; /* Distance from the right */
+width: 180px; 
+height: 123px;
+}
+
+.StudentAudio {
+background-color: #9DC02E; /* Green background */
+color: white; /* White text */
+border: none; /* No border */
+padding: 10px 20px; /* Padding around the text */
+font-size: 16px; /* Text size */
+border-radius: 5px; /* Rounded corners */
+position: absolute;
+top: 450px; /* Distance from the bottom */
+right: 450px; /* Distance from the right */
+}
+
+.StudentAudio:hover {
+background-color: #8BB023; /* Slightly darker green on hover */
+}
