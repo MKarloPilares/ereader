@@ -29,10 +29,17 @@ function App() {
     setIndexCheck(indexCheck => indexCheck +1);
   };
 
+  const resetindex = () => {
+    setIndexCheck(1);
+  }
+
   const incrementScore = (points) => {
     setScore(score => score + points);
   }
 
+  const resetScore = () => {
+    setScore(0);
+  }
 
   const startSpeechRecognition = () => {
     setIsListening(true);
@@ -53,11 +60,11 @@ function App() {
   const start = (index) => {
     audios[index-1].play()
   }
-
   return (
-<body>
+  <body>
     <header>
-        <h1>Oral Language Assessment</h1>
+    {indexCheck <= questions.length ? (
+        <h1>Oral Language Assessment</h1> ) : (<h1> Result of Oral Assessment</h1>)}
     </header>
         <div>
           {indexCheck <= questions.length ? (
@@ -74,12 +81,22 @@ function App() {
                 <img class="RecAudio" src={RecAudio} onClick={() => start(indexCheck)}/>
 
                 <img class="StudAudio" src={studAudio} onClick={isListening ? stopSpeechRecognition : startSpeechRecognition}/>
-                {answers[indexCheck-1] === recognizedText ? (points = points+1) : (points = points)}
-                <button class="NextButton" onClick={() => {incrementScore(points); incrementIndex();}}>NEXT</button>
+                <button class="NextButton" onClick={() => {incrementScore(points); incrementIndex();}}>NEXT</button>{answers[indexCheck-1] === recognizedText ? (points = points+1) : (points = points)}
+                
           </main>):(
-            <div>
-              <h1>{score}</h1>
-            </div>
+          <main>
+            <div class="ResultScreen">
+              <h2> CONGRATULATIONS!</h2>
+                <h1> {score} </h1>
+                <div class="stars">
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                </div>
+                <p> You have Conquered the Oral Language Assessment!</p>
+              </div>
+        <button class="FinishButton" onClick={() => {resetScore(); setRecognizedText(""); resetindex();}}>Finish</button>
+          </main>
         )}</div>
 </body>
   );

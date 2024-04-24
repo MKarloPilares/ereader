@@ -101,3 +101,44 @@ right: 450px; /* Distance from the right */
 .StudentAudio:hover {
 background-color: #8BB023; /* Slightly darker green on hover */
 }
+.container .stars {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  position: absolute;
+  top: 630px;
+}
+
+.stars i {
+  color: gold;
+  font-size: 120px;
+}
+
+.ResultScreen {
+  text-align: center;
+  position: absolute;
+  font-size: 50px;
+  bottom: 200px;
+  left: 600px;
+}
+
+.container h1 {
+  text-align: center;
+  font-size: 165px;
+}
+h2 {
+  font-size: 64px;
+  font-family: Arial, sans-serif;
+  text-align: center;
+}
+.FinishButton {
+  background-color: #9DC02E;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 24px;
+  border-radius: 5px;
+  position: absolute; /* Position the button absolutely */
+  bottom: 20px; /* Distance from the bottom */
+  right: 895px; /* Distance from the right */
+}
