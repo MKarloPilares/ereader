@@ -62,28 +62,26 @@ background-color: #8BB023; /* Slightly darker green on hover */
 
 .RecAudio {
 position: absolute;
-top: 210px; /* Distance from the bottom */
-right: 840px; /* Distance from the right */
+top: 180px; /* Distance from the bottom */
+right: 1270px; /* Distance from the right */
 width: 137px; 
 height: 81px;
 }
 
 .Direction {
 position: absolute;
-top: 140px; /* Distance from the bottom */
-right: 460px; /* Distance from the right */
+top: 115px; /* Distance from the bottom */
+right: 890px; /* Distance from the right */
 width: 137px; 
 height: 81px;
 }
 
 .StudAudio {
-border: solid;
-border-color: black;
 position: absolute;
-top: 470px; /* Distance from the bottom */
-right: 450px; /* Distance from the right */
+top: 450px; /* Distance from the bottom */
+right: 950px; /* Distance from the right */
 width: 180px; 
-height: 123px;
+height: 150px;
 }
 
 .StudentAudio {
