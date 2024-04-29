@@ -1,0 +1,13 @@
+.searchTextField {
+    position: fixed;
+    top: 50px;
+    right: 350px;
+    z-index: 100;
+    background-color: lightgray;
+    cursor: pointer;
+    border: none;
+    color: black;
+    border-radius: 4px;
+    height: 40px;
+    width: 250px;
+  }

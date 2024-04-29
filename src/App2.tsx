@@ -14,9 +14,7 @@ import aud4 from './Components/Audio/Oral4.m4a';
 import aud5 from './Components/Audio/Oral5.m4a';
 import dirOral from './Components/Audio/DirOral.m4a';
 
-function App() {
-  const [audio, setAudio] = useState(null);
-  const [post, setPost] = useState<any[]>([]);
+function OralAssessment() {
   const [isListening, setIsListening] = useState(false);
   const [recognizedText, setRecognizedText] = useState('');
   const [indexCheck, setIndexCheck] = useState(1);
@@ -26,20 +24,6 @@ function App() {
   const audios = [new Audio(aud1), new Audio(aud2), new Audio(aud3), new Audio(aud4), new Audio(aud5), new Audio(dirOral)];
   const [score, setScore] = useState(0);
   var points = 0;
-
-  useEffect(() => {
-    fetchData();
-  }, []);
-
-  const fetchData = async () => {
-    try {
-      const response = await fetch('http://127.0.0.1:8000/post');
-      const jsonData = await response.json();
-      setPost(jsonData.message);
-    } catch (error) {
-      console.error('Error fetching data:', error);
-    }
-  };
 
   const incrementIndex = () => {
     setIndexCheck(indexCheck => indexCheck +1);
@@ -73,51 +57,45 @@ function App() {
     recognition.stop();
   };
 
-  const start = async (element) => {
-    const url = `data:audio/mp3;base64,${btoa(String.fromCharCode(...new Uint8Array(element)))}`;
-    const audio = new Audio(url)
-    audio.load()
-    audio.play()
+  const start = (index) => {
+    audios[index-1].play()
   }
+  return (
+  <body>
+        <div>
+          {indexCheck <= questions.length ? (
+          <main>
+            <p><b> Direction: Describe the picture using the words in the box. </b></p>
+            <p>{indexCheck}. {questions[indexCheck-1]}</p>
+            <div id="image-section">
+                <img src={images[indexCheck-1]}/>
+            </div>
 
-  const loadImage = (element) => {
-    const CHUNK_SIZE = 0x8000;
-    const byteCharacters = [];
-    const array = new Uint16Array(element);
+                <img class="Direction" src={RecAudio} onClick={() => start(6)}/>
+                <audio id="audio1" src=".mp3"></audio>
 
-    for (let offset = 0; offset < array.byteLength; offset += CHUNK_SIZE){
-      const chunk = array.slice(offset, offset + CHUNK_SIZE);
-      byteCharacters.push(String.fromCharCode.apply(null, chunk));
-    }
+                <img class="RecAudio" src={RecAudio} onClick={() => start(indexCheck)}/>
 
-    const blobBTOA = btoa(byteCharacters.join(''));
-    const url = `data:image/png;base64,${blobBTOA}`;
-    return(url)
-  }
-    return (
-      <body>
-      <div className="App">
-        {post.map((mess: any, index: number) =>
-        <h2>
-          <p key={index}>
-              {mess.QuestNum}. {mess.Question}
-          </p>
-          <p>
-            <span>
-            <button onClick={() => start(mess.RecAud.data)}></button>
-            <img src={loadImage(mess.image1.data)}/>       
-            </span>
-            <span>
-              <button onClick={isListening ? stopSpeechRecognition : startSpeechRecognition}>
-                {isListening ? 'Stop Listening' : 'Start Listening'}
-              </button>
-              <p>{recognizedText === mess.Answer.toLowerCase() ? "Correct" : "Wrong"}</p>
-            </span>
-          </p>
-        </h2>
-    )}</div>
-    </body>
-  )
+                <img class="StudAudio" src={studAudio} onClick={isListening ? stopSpeechRecognition : startSpeechRecognition}/>
+                <button class="NextButton" onClick={() => {incrementScore(points); incrementIndex();}}>NEXT</button>{answers[indexCheck-1] === recognizedText ? (points = points+1) : (points = points)}
+                
+          </main>):(
+          <main>
+            <div class="ResultScreen">
+              <h2> CONGRATULATIONS!</h2>
+                <h1> {score} </h1>
+                <div class="stars">
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                </div>
+                <p> You have Conquered the Oral Language Assessment!</p>
+              </div>
+        <button class="FinishButton" onClick={() => {resetScore(); setRecognizedText(""); resetindex();}}>Finish</button>
+          </main>
+        )}</div>
+</body>
+  );
 }
 
-export default App
+export default OralAssessment
