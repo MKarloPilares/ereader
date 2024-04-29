@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import Container from 'react-bootstrap/Container'
 import "./App.css";
 import SearchTextField from './Components/TextFields/search';
 import SearchButton from './Components/Buttons/search';
@@ -21,13 +22,13 @@ const App = () => {
       <SearchTextField/>
       <SearchButton/>
       </header>
-<body className={isSidebarOpen ? 'open-sidebar' : ''}>
+<Container>
       <div className="content">
         {currentPage === 'DashBoard' && <DashBoard setCurrentPage={setCurrentPage}/>}
         {currentPage === 'Assessment' && <Assessment setCurrentPage={setCurrentPage}/>}
         {currentPage === 'OralAssessment' && <OralAssessment />}
       </div>
-    </body>
+    </Container>
     </>
   );
 };

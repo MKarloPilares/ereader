@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import "./OralAssessment.css";
 import studAudio from '../Images/Audio.png';
 import img1 from '../Images/Number1.png';
 import img2 from '../Images/Number2.png';
@@ -13,6 +12,12 @@ import aud3 from '../Audio/Oral3.m4a';
 import aud4 from '../Audio/Oral4.m4a';
 import aud5 from '../Audio/Oral5.m4a';
 import dirOral from '../Audio/DirOral.m4a';
+import { Container } from "react-bootstrap";
+import {Row} from "react-bootstrap";
+import {Col} from "react-bootstrap";
+import {Image} from "react-bootstrap";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import {Button} from "react-bootstrap";
 
 function OralAssessment() {
   const [isListening, setIsListening] = useState(false);
@@ -61,40 +66,38 @@ function OralAssessment() {
     audios[index-1].play()
   }
   return (
-  <body>
+  <Container>
         <div>
           {indexCheck <= questions.length ? (
-          <main>
-            <p><b> Direction: Describe the picture using the words in the box. </b></p>
-            <p>{indexCheck}. {questions[indexCheck-1]}</p>
-            <div id="image-section">
-                <img src={images[indexCheck-1]}/>
-            </div>
-
-                <img class="Direction" src={RecAudio} onClick={() => start(6)}/>
-                <audio id="audio1" src=".mp3"></audio>
-
-                <img class="RecAudio" src={RecAudio} onClick={() => start(indexCheck)}/>
-
-                <img class="StudAudio" src={studAudio} onClick={isListening ? stopSpeechRecognition : startSpeechRecognition}/>
-                <button class="NextButton" onClick={() => {incrementScore(points); incrementIndex();}}>NEXT</button>{answers[indexCheck-1] === recognizedText ? (points = points+1) : (points = points)}
-                
-          </main>):(
-          <main>
-            <div class="ResultScreen">
-              <h2> CONGRATULATIONS!</h2>
-                <h1> {score} </h1>
-                <div class="stars">
-                  <i class="fa-solid fa-star"></i>
-                  <i class="fa-solid fa-star"></i>
-                  <i class="fa-solid fa-star"></i>
-                </div>
-                <p> You have Conquered the Oral Language Assessment!</p>
+          <div style={{position: "fixed", left: '500px', bottom: '100px', width: '1300px'}}>
+            <Row>
+            <Col class="col-md-10"> <h2 style={{width: '1000px'}}>Direction: Describe the picture using the words in the box.
+               <Image src={RecAudio} onClick={() => start(6)} rounded style={{height: '60px', width:'70px'}}></Image></h2> </  Col>
+            </Row>
+            <Row>
+              <Col class="col-md-10"><h3>{indexCheck}. {questions[indexCheck-1]}<Image src={RecAudio} onClick={() => start(indexCheck)} rounded style={{height: '60px', width:'70px'}}/></h3></Col>
+            </Row>
+            <Row>
+              <Col><Image src={images[indexCheck-1]}></Image></Col>
+              <Col><Image src={studAudio} onClick={isListening ? stopSpeechRecognition : startSpeechRecognition} rounded style={{width: '400px', height: '400px'}}></Image></Col>
+            </Row>
+            <Row>
+              <Button variant='success' onClick={() => {answers[indexCheck-1] === recognizedText ? (points = points+1) : (points = points); incrementScore(points); incrementIndex();}}>NEXT</Button>
+            </Row>
+          </div>
+          ):(
+          <div style={{position: "fixed", left: '300px', bottom: '150px', width: '1300px'}}>
+          <div>
+              <h2 style={{textAlign: "center", fontSize: "100px"}}> CONGRATULATIONS!</h2>
+                <h1 style={{textAlign: "center", padding: "50px"}}> {score} </h1>
+                <h2 style={{textAlign: "center", paddingBottom: "120px"}}> You have Conquered the Oral Language Assessment!</h2>
               </div>
-        <button class="FinishButton" onClick={() => {resetScore(); setRecognizedText(""); resetindex();}}>Finish</button>
-          </main>
-        )}</div>
-</body>
+        <Row>
+        <Button variant="success" onClick={() => {resetScore(); setRecognizedText(""); resetindex();}}>Finish</Button>
+        </Row>
+        </div>)}
+        </div>
+</Container>
   );
 }
 
