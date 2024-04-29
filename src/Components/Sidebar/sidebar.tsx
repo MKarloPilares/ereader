@@ -20,9 +20,6 @@ const Sidebar = ({setCurrentPage,sendToggle}) => {
     </div>
     <div className={`sidebar ${isOpen ? 'open' : ''}`}>
       <ul className="sidebar-menu">
-        <li></li>
-        <li></li>
-        <li></li>
         <li onClick={() => setCurrentPage('DashBoard')}>DASHBOARD</li>
         <li>LESSONS</li>
         <li onClick={() => setCurrentPage('Assessment')}>ASSESSMENT</li>

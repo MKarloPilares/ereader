@@ -11,31 +11,31 @@ const DashBoard = ({setCurrentPage}) => {
   const test = ['1', '2'];
   return (
     <Container fluid>
-    <div style={{position: 'fixed', left: '500px', bottom: '1px'}}>
-        <h1 className='text-dark' style={{fontSize: '120px', width: '1200px', paddingRight: '120px'}}>E-Readers for Early Readers</h1>
-        <Row>
-          <Col class="col-md-5 col-md-offset-2">
-        <Card border="success" style={{ width: '30rem' }}> 
-        <Card.Img variant="top" src={img1}/> 
-        <Card.Body>
-          <Card.Title> Read and Learn</Card.Title>
-          <Card.Text>Lorem ipsum dolor sit amet, </Card.Text>
-          <Button variant="success" onClick={() => setCurrentPage("Assessment")} size='lg'style={{position: "relative", left: "350px"}}>START</Button>
-        </Card.Body>
-        </Card>
-        </Col>
-        <Col class="col-md-4">
-        <Card border="success" style={{ width: '30rem' }}> 
-        <Card.Img variant="top" src={img1}/> 
-        <Card.Body>
-          <Card.Title> Read and Learn</Card.Title>
-          <Card.Text>Lorem ipsum dolor sit amet, </Card.Text>
-          <Button variant="success" onClick={() => setCurrentPage("Assessment")} size='lg'style={{position: "relative", left: "350px"}}>START</Button>
-        </Card.Body>
-        </Card>
-        </Col>
-      </Row>
-    </div>
+      <div style={{position: 'fixed', left: '500px', bottom: '1px'}}>
+          <h1 className='text-dark' style={{fontSize: '120px', width: '1200px', paddingRight: '120px'}}>E-Readers for Early Readers</h1>
+          <Row>
+            <Col class="col-md-5 col-md-offset-2">
+              <Card border="success" style={{ width: '30rem' }}> 
+                  <Card.Img variant="top" src={img1}/> 
+                <Card.Body>
+                  <Card.Title> Read and Learn</Card.Title>
+                  <Card.Text>Lorem ipsum dolor sit amet, </Card.Text>
+                  <Button variant="success" onClick={() => setCurrentPage("Assessment")} size='lg'style={{position: "relative", left: "350px"}}>Let's Begin!</Button>
+                </Card.Body>
+              </Card>
+            </Col>
+          <Col class="col-md-4">
+            <Card border="success" style={{ width: '30rem' }}> 
+                <Card.Img variant="top" src={img1}/> 
+              <Card.Body>
+                <Card.Title> Read and Learn</Card.Title>
+                <Card.Text>Lorem ipsum dolor sit amet, </Card.Text>
+                <Button variant="success" onClick={() => setCurrentPage("Assessment")} size='lg'style={{position: "relative", left: "350px"}}>Challenge Accepted!</Button>
+              </Card.Body>
+            </Card>
+          </Col>
+        </Row>
+      </div>
     </Container>
   );
 };

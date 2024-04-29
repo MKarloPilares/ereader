@@ -1,11 +1,11 @@
 .searchButton {
-    position: fixed;
-    top: 49px;
-    right: 272px;
+    position: absolute;
+    top: 20px;
+    right: 10px;
     color: white;
     height: 42px;
     width: 70px;
     text-align: center;
     font-weight: bold;
-    background-color: black;
+    background-color: #8B4513;
 }

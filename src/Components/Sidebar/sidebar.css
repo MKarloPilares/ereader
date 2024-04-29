@@ -1,6 +1,6 @@
 
 .toggle-button {
-  position: fixed;
+  position: absolute;
   top: 20px;
   left: 10px;
   z-index: 100;
@@ -39,12 +39,12 @@
   left: -500px;
   width: 450px;
   height: 100%;
-  background-color: #333;
+  background-color: #228b22;
   transition: left 0.3s ease;
   z-index: 99;
   font-weight: bold;
-  font-size: 50px;
-  font-family: Arial Arial, Helvetica, sans-serif;
+  font-size: 40px;
+  font-family: Helvetica, sans-serif;
 }
 
 .sidebar.open {
@@ -53,7 +53,10 @@
 
 .sidebar-menu {
   list-style-type: none;
-  padding: 0;
+  position: absolute;
+  top: 50px;
+  width: 100%;
+  padding: 0px;
   margin: 50px 0 0 0;
 }
 
@@ -64,5 +67,6 @@
 }
 
 .sidebar-menu li:hover {
-  background-color: #555;
+  background-color: #ffd700;
+  color: #228b22;
 }

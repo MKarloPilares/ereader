@@ -4,7 +4,7 @@ body {
     padding: 0;
     background-color: white ;
     color: black;
-    transition: margin-left 0.3s ease;
+    /*transition: margin-left 0.3s ease;*/
   }
 
 .mainHeader {
@@ -12,10 +12,6 @@ body {
     font-family: Arial, sans-serif;
     color: black;
     position: fixed;
-    padding:30px;
-    bottom: 500px;
-    left: 580px;
-    width: 1000px;
     word-wrap: break-word;
     text-align: center;
   }

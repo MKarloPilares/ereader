@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import Container from 'react-bootstrap/Container'
+import Container from 'react-bootstrap/Container';
 import "./App.css";
 import SearchTextField from './Components/TextFields/search';
 import SearchButton from './Components/Buttons/search';
@@ -18,11 +18,13 @@ const App = () => {
   return (
     <>
     <Sidebar setCurrentPage={setCurrentPage} sendToggle={toggleSidebar} />
-    <header>
-      <SearchTextField/>
-      <SearchButton/>
+    <Container fluid>
+      <header>
+        <SearchTextField/>
+        <SearchButton/>
       </header>
-<Container>
+    </Container>
+    <Container>
       <div className="content">
         {currentPage === 'DashBoard' && <DashBoard setCurrentPage={setCurrentPage}/>}
         {currentPage === 'Assessment' && <Assessment setCurrentPage={setCurrentPage}/>}
