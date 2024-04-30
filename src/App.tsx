@@ -1,6 +1,8 @@
 import React, {useState} from 'react';
-import Container from 'react-bootstrap/Container';
+import {Container, Row, Col} from 'react-bootstrap';
 import "./App.css";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { ThemeProvider } from 'react-bootstrap';
 import SearchTextField from './Components/TextFields/search';
 import SearchButton from './Components/Buttons/search';
 import Sidebar from './Components/Sidebar/sidebar';
@@ -16,22 +18,37 @@ const App = () => {
   };
 
   return (
-    <>
+    <ThemeProvider
+    breakpoints={['xxxl', 'xxl', 'xl', 'lg', 'md', 'sm', 'xs', 'xxs']}
+    minBreakpoint="xxs"
+  >
+    <body style={{overflow: 'auto', boxSizing: 'border-box', backgroundColor: 'burlywood', maxWidth: '1920px', width: '160%'}} >
     <Sidebar setCurrentPage={setCurrentPage} sendToggle={toggleSidebar} />
-    <Container fluid>
+    <Container>
+      <Row>
+        <Col>
       <header>
+        <Row>
+          <Col>
         <SearchTextField/>
         <SearchButton/>
+          </Col>
+        </Row>
       </header>
+      </Col>
+     </Row> 
     </Container>
-    <Container>
-      <div className="content">
+    <Container style={{marginTop: '50px', position: 'relative', right: '320px'}}>
+      <Row>
+          <Col>
         {currentPage === 'DashBoard' && <DashBoard setCurrentPage={setCurrentPage}/>}
         {currentPage === 'Assessment' && <Assessment setCurrentPage={setCurrentPage}/>}
-        {currentPage === 'OralAssessment' && <OralAssessment />}
-      </div>
+        {currentPage === 'OralAssessment' && <OralAssessment setCurrentPage={setCurrentPage}/>}
+        </Col>
+      </Row>
     </Container>
-    </>
+    </body>
+    </ThemeProvider>
   );
 };
 

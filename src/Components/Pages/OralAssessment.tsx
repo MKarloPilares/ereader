@@ -17,9 +17,9 @@ import {Row} from "react-bootstrap";
 import {Col} from "react-bootstrap";
 import {Image} from "react-bootstrap";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import {Button} from "react-bootstrap";
+import {Button, ThemeProvider} from "react-bootstrap";
 
-function OralAssessment() {
+const OralAssessment = ({setCurrentPage}) => {
   const [isListening, setIsListening] = useState(false);
   const [recognizedText, setRecognizedText] = useState('');
   const [indexCheck, setIndexCheck] = useState(1);
@@ -66,10 +66,14 @@ function OralAssessment() {
     audios[index-1].play()
   }
   return (
+    <ThemeProvider
+    breakpoints={['xxxl', 'xxl', 'xl', 'lg', 'md', 'sm', 'xs', 'xxs']}
+    minBreakpoint="xxs"
+  >
+
   <Container>
-        <div>
           {indexCheck <= questions.length ? (
-          <div style={{position: "fixed", left: '500px', bottom: '100px', width: '1300px'}}>
+          <Row style={{position: 'relative',right: '100px', width: '1600px'}}>
             <Row>
             <Col class="col-md-10"> <h2 style={{width: '1000px'}}>Direction: Describe the picture using the words in the box.
                <Image src={RecAudio} onClick={() => start(6)} rounded style={{height: '60px', width:'70px'}}></Image></h2> </  Col>
@@ -82,22 +86,22 @@ function OralAssessment() {
               <Col><Image src={studAudio} onClick={isListening ? stopSpeechRecognition : startSpeechRecognition} rounded style={{width: '400px', height: '400px'}}></Image></Col>
             </Row>
             <Row>
-              <Button variant='success' onClick={() => {answers[indexCheck-1] === recognizedText ? (points = points+1) : (points = points); incrementScore(points); incrementIndex();}}>NEXT</Button>
+              <Button variant='success' style={{fontWeight: 'bold', borderRadius: '30px'}}onClick={() => {answers[indexCheck-1] === recognizedText ? (points = points+1) : (points = points); incrementScore(points); incrementIndex();}}>NEXT</Button>
             </Row>
-          </div>
+          </Row>
           ):(
-          <div style={{position: "fixed", left: '300px', bottom: '150px', width: '1300px'}}>
-          <div>
+          <Row style={{position: 'relative', right: "150px", width: '1600px'}}>
+          <Col>
               <h2 style={{textAlign: "center", fontSize: "100px"}}> CONGRATULATIONS!</h2>
                 <h1 style={{textAlign: "center", padding: "50px"}}> {score} </h1>
                 <h2 style={{textAlign: "center", paddingBottom: "120px"}}> You have Conquered the Oral Language Assessment!</h2>
-              </div>
+                </Col>
         <Row>
-        <Button variant="success" onClick={() => {resetScore(); setRecognizedText(""); resetindex();}}>Finish</Button>
+        <Button variant="success" style={{fontWeight: 'bold', borderRadius: '30px'}} onClick={() => {setCurrentPage("Assessment")}}>FINISH</Button>
         </Row>
-        </div>)}
-        </div>
+        </Row>)}
 </Container>
+</ThemeProvider>
   );
 }
 

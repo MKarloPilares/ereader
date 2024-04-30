@@ -10,7 +10,7 @@ const Sidebar = ({setCurrentPage,sendToggle}) => {
 
 
   return (
-    <body>
+    <>
     <div>
     <button className={`toggle-button ${isOpen ? 'open' : ''}`} onClick={() => {toggleSidebar(); sendToggle(isOpen)}}>
         <div className="bar"></div>
@@ -25,7 +25,7 @@ const Sidebar = ({setCurrentPage,sendToggle}) => {
         <li onClick={() => setCurrentPage('Assessment')}>ASSESSMENT</li>
       </ul>
     </div>
-    </body>
+    </>
   );
 };
 

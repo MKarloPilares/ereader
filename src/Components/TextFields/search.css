@@ -1,7 +1,4 @@
 .searchTextField {
-    position: absolute;
-    top: 20px;
-    right: 80px;
     z-index: 100;
     background-color: lightgray;
     cursor: pointer;
