@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
-import studAudio from './Components/Images/Audio.png';
-import img1 from './Components/Images/Number1.png';
-import img2 from './Components/Images/Number2.png';
-import img3 from './Components/Images/Number3.png';
-import img4 from './Components/Images/Number4.png';
-import img5 from './Components/Images/Number5.png';
-import RecAudio from './Components/Images/RecordedAudio.png'
+import studAudio from '../Images/Audio.png';
+import img1 from '../Images/Number1.png';
+import img2 from '../Images/Number2.png';
+import img3 from '../Images/Number3.png';
+import img4 from '../Images/Number4.png';
+import img5 from '../Images/Number5.png';
+import RecAudio from '../Images/RecordedAudio.png'
 import aud1 from './Components/Audio/Oral1.m4a';
 import aud2 from './Components/Audio/Oral2.m4a';
 import aud3 from './Components/Audio/Oral3.m4a';

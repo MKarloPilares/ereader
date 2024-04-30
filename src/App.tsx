@@ -8,8 +8,7 @@ import SearchButton from './Components/Buttons/search';
 import Sidebar from './Components/Sidebar/sidebar';
 import DashBoard from './Components/Pages/DashBoard';
 import Assessment from './Components/Pages/Assessment';
-import OralAssessment from './Components/Pages/OralAssessment';
-const App = () => {
+import OralAssessment from './Components/Pages/OralAssessment';const App = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [currentPage, setCurrentPage] = useState('DashBoard');
 
