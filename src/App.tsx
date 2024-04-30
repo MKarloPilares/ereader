@@ -21,7 +21,7 @@ import OralAssessment from './Components/Pages/OralAssessment';const App = () =>
     breakpoints={['xxxl', 'xxl', 'xl', 'lg', 'md', 'sm', 'xs', 'xxs']}
     minBreakpoint="xxs"
   >
-    <body style={{overflow: 'auto', boxSizing: 'border-box', backgroundColor: 'burlywood', maxWidth: '1920px', width: '160%'}} >
+    <body style={{overflow: 'auto', boxSizing: 'border-box', backgroundColor: 'white', maxWidth: '1920px', width: '160%'}} >
     <Sidebar setCurrentPage={setCurrentPage} sendToggle={toggleSidebar} />
     <Container>
       <Row>
