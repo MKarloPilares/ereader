@@ -146,6 +146,11 @@ background-color: #8BB023; /* Slightly darker green on hover */
   top: 630px;
 }
 
+.content{
+  z-index: 99;
+  padding-left: 300px;
+  margin-left: 300px;
+}
 .stars i {
   color: gold;
   font-size: 120px;
